@@ -1,10 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { HeaderComponent } from './pages/header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  template: '<router-outlet></router-outlet>',
+  imports: [CommonModule, RouterOutlet, HeaderComponent],
+  template: `
+    <app-header *ngIf="isLoginPage()"></app-header>
+    <router-outlet></router-outlet>
+  `
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(public router: Router) {}
+
+  isLoginPage(): boolean {
+    return this.router.url === '/users' || this.router.url === '/sneakers';
+  }
+}

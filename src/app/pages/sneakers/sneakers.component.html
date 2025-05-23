@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmit()" #sneakerForm="ngForm">
+  <label>Model Name</label>
+  <input type="text" name="model_name" [(ngModel)]="sneaker.model_name" required />
+
+  <label>SKU</label>
+  <input type="text" name="sku" [(ngModel)]="sneaker.sku" required />
+
+  <label>Sizes Available (comma-separated)</label>
+  <input type="text" name="sizes_available" [(ngModel)]="sizesInput" required />
+
+  <label>Colors (comma-separated)</label>
+  <input type="text" name="colors" [(ngModel)]="colorsInput" required />
+
+  <label>Material</label>
+  <input type="text" name="material" [(ngModel)]="sneaker.material" required />
+
+  <label>Price</label>
+  <input type="number" name="price" [(ngModel)]="sneaker.price" required />
+
+  <button type="submit">Save Sneaker</button>
+</form>

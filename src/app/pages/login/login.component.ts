@@ -41,11 +41,10 @@ export class LoginComponent {
 
   onLogin() {
     if (this.loginForm.valid) {
-      console.log('Login data:', this.loginForm.value);
       const credentials = this.loginForm.value;
       this.authService.login(credentials).subscribe({
         next: (response) => {
-          localStorage.setItem('userName',response.full_name)
+          localStorage.setItem('token',response.access_token)
           this.router.navigate(['/dashboard']);
         },
         error: (err)=> {

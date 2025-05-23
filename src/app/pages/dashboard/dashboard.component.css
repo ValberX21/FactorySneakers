@@ -1,46 +1,27 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2e7d32; /* Green */
-  color: white;
-  padding: 15px 30px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.logo h1 {
-  margin: 0;
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-}
-
-.quick-actions button {
+.model-panel {
   background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+
+  /* ✅ Align to left */
+  margin: 20px 0 20px 40px;
+}
+
+.model-panel h3 {
   color: #2e7d32;
-  border: none;
-  padding: 10px 16px;
-  margin: 0 6px;
-  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.model-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.model-panel li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
   font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.quick-actions button:hover {
-  background-color: #c8e6c9; /* Light green on hover */
-}
-
-.user-profile img {
-  background-image: url('/assets/user-icon.png');
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid white;
-  object-fit: cover;
-}
-
-.user-profile i {
-  font-size: 32px; /* or 36px, 40px, etc. */
-  color: white;
 }
