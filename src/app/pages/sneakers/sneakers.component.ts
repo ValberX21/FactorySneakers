@@ -1,65 +1,48 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SneakeService } from '../../service/sneaker.service';
 
 @Component({
+  standalone: true,
   selector: 'app-sneakers',
   templateUrl: './sneakers.component.html',
-  styleUrls: ['./sneakers.component.css']
+  styleUrls: ['./sneakers.component.css'],
+  imports: [ReactiveFormsModule],
 })
-export class SneakersComponent {
-
+export class SneakersComponent implements OnInit {
   sneakeForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private sneakerService: SneakeService
+     private sneakerService: SneakeService
   ) {}
 
-  ngOnInit(): void {
-    this.sneakeForm = this.fb.group({
-      model_name: ['', Validators.required],
-      sku: ['', Validators.required],
-      sizes_available: ['', Validators.required],
-      colors: ['', Validators.required],
-      material: ['', Validators.required],
-      price: [0, Validators.required]
-    });
-  }
+ngOnInit(): void {
+  this.sneakeForm = this.fb.group({
+    model_name: ['', Validators.required],
+    sku: ['', Validators.required],
+    sizes_available: ['', Validators.required],
+    colors: ['', Validators.required],
+    material: ['', Validators.required],
+    price: [0, Validators.required]
+  });
+}
 
-  onSubmit() {
-    if (this.sneakeForm.invalid) {
-      alert("Form is invalid");
-      return;
-    }
+ onSubmit() {
 
+  if (this.sneakeForm.valid) {
     const formValues = this.sneakeForm.value;
 
-    const payload = {
-      model_name: formValues.model_name,
-      sku: formValues.sku,
-      sizes_available: formValues.sizes_available
-        .split(',')
-        .map((s: string) => parseInt(s.trim(), 10)),
-      colors: formValues.colors
-        .split(',')
-        .map((c: string) => c.trim()),
-      material: formValues.material,
-      price: parseFloat(formValues.price),
-      is_active: true
+    const sneaker = {
+      ...formValues,
+      sizes_available: formValues.sizes_available.split(',').map((v: string) => v.trim()),
+      colors: formValues.colors.split(',').map((v: string) => v.trim()),
     };
 
-    console.log("Sending to API:", payload);
-
-    this.sneakerService.create(payload).subscribe({
-      next: (response: any) => {
-        console.log("API response:", response);
-        alert("Sneaker created successfully!");
-      },
-      error: (err) => {
-        console.error(err);
-        alert("API error: failed to create sneaker.");
-      }
+    this.sneakerService.create(sneaker).subscribe({
+      next: (res) => console.log('Saved successfully!'),
+      error: (err) => console.error('Save failed:', err)
     });
   }
+}
 }

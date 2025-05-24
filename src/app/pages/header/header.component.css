@@ -44,3 +44,68 @@
   font-size: 32px; /* or 36px, 40px, etc. */
   color: white;
 }
+
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2e7d32;
+  padding: 10px 20px;
+  gap: 10px;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  line-height: 1.2;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  flex: 1;
+}
+
+.nav-buttons button {
+  background-color: white;
+  color: #2e7d32;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.nav-buttons button:hover {
+  background-color: #e0f2f1;
+}
+
+.user-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .user-profile {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+}

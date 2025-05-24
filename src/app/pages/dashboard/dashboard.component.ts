@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 import { CommonModule } from '@angular/common';
-import { sneakeService } from '../../service/sneaker.service';
+import { SneakeService } from '../../service/sneaker.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,12 +13,11 @@ export class DashboardComponent  {
 
   models : any[] = [];
 
-  constructor(private sneakerService: sneakeService){}
+  constructor(private sneakerService: SneakeService){}
 
   ngOnInit(): void {
     this.sneakerService.listSneakers().subscribe({
       next:(response) => {
-          console.log(`${response}`)
           this.models = response
       },
       error: (err) => {

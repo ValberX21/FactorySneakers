@@ -1,21 +1,21 @@
-<form (ngSubmit)="onSubmit()" #sneakerForm="ngForm">
+<form [formGroup]="sneakeForm" (ngSubmit)="onSubmit()">
   <label>Model Name</label>
-  <input type="text" name="model_name" [(ngModel)]="sneaker.model_name" required />
+  <input type="text" formControlName="model_name" />
 
   <label>SKU</label>
-  <input type="text" name="sku" [(ngModel)]="sneaker.sku" required />
+  <input type="text" formControlName="sku" />
 
   <label>Sizes Available (comma-separated)</label>
-  <input type="text" name="sizes_available" [(ngModel)]="sizesInput" required />
+  <input type="text" formControlName="sizes_available" />
 
   <label>Colors (comma-separated)</label>
-  <input type="text" name="colors" [(ngModel)]="colorsInput" required />
+  <input type="text" formControlName="colors" />
 
   <label>Material</label>
-  <input type="text" name="material" [(ngModel)]="sneaker.material" required />
+  <input type="text" formControlName="material" />
 
   <label>Price</label>
-  <input type="number" name="price" [(ngModel)]="sneaker.price" required />
+  <input type="number" formControlName="price" />
 
   <button type="submit">Save Sneaker</button>
 </form>
