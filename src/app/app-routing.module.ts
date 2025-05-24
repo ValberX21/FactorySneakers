@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'users', component: LoginComponent },
   { path: 'sneakers', component: SneakersComponent },
+  { path: 'order', component: SneakersComponent },
   { path: '', redirectTo: 'users', pathMatch: 'full' }
 ];
 

@@ -1,0 +1,17 @@
+<form [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+  <label>Model</label>
+  <select formControlName="model">
+    <option *ngFor="let model of availableModels" [value]="model">{{ model }}</option>
+  </select>
+
+  <label>Sizes (comma-separated)</label>
+  <input type="text" formControlName="sizes" />
+
+  <label>Quantity</label>
+  <input type="number" formControlName="quantity" />
+
+  <label>Customization</label>
+  <input type="text" formControlName="customization" />
+
+  <button type="submit" [disabled]="orderForm.invalid">Submit Order</button>
+</form>

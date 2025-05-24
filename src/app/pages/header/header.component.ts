@@ -16,7 +16,7 @@ export class HeaderComponent {
   addSneakerModel(){
     this.router.navigate(['/sneakers']);
   }
-
-  
-
+  newOrder(){
+    this.router.navigate(['/order']);
+  }
 }
