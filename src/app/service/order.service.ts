@@ -19,7 +19,7 @@ export class OrderService {
 
      createOrder(credentials:any): Observable<any>{
         return this.http.post
-        (`${environment.apiUrl}addOrder`,
+        (`${environment.apiUrl}order`,
             credentials,
         {headers: this.getToken()})
     }  

@@ -10,7 +10,11 @@
     <button>Track Order</button>
   </nav>
 
-  <div class="user-profile">
-    <i class="bi bi-person-circle"></i>
+<div class="user-profile" (click)="toggleDropdown($event)">
+  <i class="bi bi-person-circle"></i>
+  <div class="dropdown-menu" *ngIf="dropdownOpen" (click)="$event.stopPropagation()">
+    <button (click)="logout()">Logout</button>
   </div>
+</div>
+
 </header>

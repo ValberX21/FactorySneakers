@@ -25,3 +25,42 @@
   border-bottom: 1px solid #ddd;
   font-weight: 500;
 }
+
+.report-panel {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  margin-top: 20px;
+  color: #2e7d32;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.report-panel h2 {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.report-panel button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.report-panel button:hover {
+  background-color: #388e3c;
+}
+
+.dashboard-panels {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+  align-items: flex-start;
+}

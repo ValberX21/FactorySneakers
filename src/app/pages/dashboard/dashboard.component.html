@@ -1,9 +1,19 @@
 <app-header></app-header>
-<div class="model-panel">
-  <h3>Available models</h3>
-  <ul>
-    <li *ngFor="let model of models">
-      {{ model.model_name }}
-    </li>
-  </ul>
+
+<div class="dashboard-panels">
+  <div class="model-panel">
+    <h3>Available models</h3>
+    <ul>
+      <li *ngFor="let model of models">
+        {{ model.model_name }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="report-panel">
+    <h3>Reports</h3>
+    <button (click)="generateSalesReport()">Sales Report</button>
+    <button (click)="generateInventoryReport()">Inventory Report</button>
+    <button (click)="generateDispatchReport()">Dispatch Report</button>
+  </div>
 </div>
