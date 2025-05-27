@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SneakeService } from '../../service/sneaker.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ExcelExportService } from '../../service/excel.service';
+import { Sneaker } from '../../interfaces/sneaker.interface';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,13 +13,9 @@ import { ExcelExportService } from '../../service/excel.service';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent  {
-
-  models : any[] = [];
   
-  reportData = [
-    { id: 1, name: 'Nike Air', quantity: 10 },
-    { id: 2, name: 'Adidas Boost', quantity: 5 },
-  ];
+  models: Sneaker[] = [];
+  reportData: Sneaker[] = [];
 
   constructor(private sneakerService: SneakeService,
               private excelService: ExcelExportService
@@ -27,6 +24,8 @@ export class DashboardComponent  {
   ngOnInit(): void {
     this.sneakerService.listSneakers().subscribe({
       next:(response) => {
+          
+          this.reportData =  response 
           this.models = response
       },
       error: (err) => {
@@ -36,7 +35,9 @@ export class DashboardComponent  {
   }
 
   generateSalesReport(){
-    this.excelService.exportToExcel(this.reportData, 'sneaker-report');
+        console.log(`Excel method - ${this.reportData}`)
+        debugger
+        this.excelService.exportToExcel(this.reportData, 'sneaker-report');   
   }
  
   generateInventoryReport(){

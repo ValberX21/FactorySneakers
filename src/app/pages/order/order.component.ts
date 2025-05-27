@@ -31,9 +31,9 @@ export class OrderComponent {
 
     });
 
-    this.sneakerService.listSneakers().subscribe((m: string[]) => {
-      this.availableModels = m;
-    })
+    // this.sneakerService.listSneakers().subscribe((m: string[]) => {
+    //   this.availableModels = m;
+    // })
 
     this.sneakerService.listSneakers().subscribe({
       next:(response) => {

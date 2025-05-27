@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from "../../environments/environment";
+import { Sneaker } from "../interfaces/sneaker.interface";
 
 @Injectable({
    providedIn:'root'
@@ -24,8 +25,10 @@ export class SneakeService {
         {headers: this.getToken()})
     }  
     
-    listSneakers(): Observable<any[]>{
-        return this.http.get<any[]>(`${environment.apiUrl}sneakermodel`, {headers: this.getToken()})
+    listSneakers(): Observable<Sneaker[]>{
+        return this.http.get<Sneaker[]>(`${environment.apiUrl}sneakermodel`, {
+            headers: this.getToken()
+        })
     }
 }
   

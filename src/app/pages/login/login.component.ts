@@ -39,20 +39,19 @@ export class LoginComponent {
     });
   }
 
-  onLogin() {
-    this.router.navigate(['/dashboard']);
-    // if (this.loginForm.valid) {
-    //   const credentials = this.loginForm.value;
-    //   this.authService.login(credentials).subscribe({
-    //     next: (response) => {
-    //       localStorage.setItem('token',response.access_token)
-    //       this.router.navigate(['/dashboard']);
-    //     },
-    //     error: (err)=> {
-    //       console.log('Login failed',err)
-    //     }
-    //   })
-    // }
+  onLogin() {    
+    if (this.loginForm.valid) {
+      const credentials = this.loginForm.value;
+      this.authService.login(credentials).subscribe({
+        next: (response) => {
+          localStorage.setItem('token',response.access_token)
+          this.router.navigate(['/dashboard']);
+        },
+        error: (err)=> {
+          console.log('Login failed',err)
+        }
+      })
+    }
   }
 
   onRegister() {
